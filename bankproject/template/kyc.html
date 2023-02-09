@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block body %}
+<h4>KYC form</h4>
+<div class="container md-5 p-5">
+  <form method="post" class="shadow rounded mb-5 px-3 pt-8 pb-3 ">
+    {% csrf_token %}
+    <div class="mb-2 py-2 px-3 mr-6">
+        <label>Name:</label> {{fcust.name}}
+    </div>
+          <div class="mb-2 py-2 px-3 mr-6">
+        <label>Age:</label> <input type="text">
+    </div>
+    <div class="mb-2 py-2 px-3 mr-6">
+        <label>Date of birth:</label> {{fcust.dob}}
+    </div>
+
+    <div class="mb-2 py-2 px-3 mr-6">
+        <label>Gender: </label> {{fcust.gender}}
+    </div>
+      <div class="mb-2 py-2 px-3 mr-6">
+        <label>Mobile: </label> {{fcust.mobile}}
+    </div>
+        <div class="mb-2 py-2 px-3 mr-6">
+        <label>Email: </label> {{fcust.email}}
+    </div>
+
+      <div class="mb-2 py-2 px-3 mr-6">
+        <label>Address: </label> {{fcust.address}}
+    </div>
+
+      <div class="mb-2 py-2 px-3 mr-6">
+        <label>district: </label> {{fcust.district}}
+    </div>
+
+            <div class="mb-2 py-2 px-3 mr-6">
+        <label id="branch">Branch: </label>
+           <select id="branch">
+               <option value="">--------</option>
+            {% for br in links %}
+               <option value={{br.get_url}}">{{br.place}}</option>
+            {% endfor %}
+           </select>
+    </div>
+
+      <div class="mb-2 py-2 px-3 mr-6">
+        <label id="actype">Account type: </label>
+           <select id="actype">
+               <option value="">--------</option>
+               <option value="SB">Savings account</option>
+                <option value="CA">Current account</option>
+               <option value="RD">Reccuring deposit</option>
+               <option value="FD">Fixed deposit</option>
+           </select>
+    </div>
+
+      <div class="mb-2 py-2 px-3 mr-6">
+          <input type="checkbox" id="cd" name="cd" value="Credit Card"><label>Credit Card </label>
+          <input type="checkbox" id="db" name="db" value="Debit Card"><label>Debit Card</label>
+          <input type="checkbox" id="chq" name="chq" value="Cheque book"><label>Cheque book</label>
+      </div>
+<!--    {{fcust}}-->
+    <button type="submit" class="btn btn-secondary">submit</button>
+    <button type="reset" class="btn btn-secondary">reset</button>
+        </div>
+</form>
+</div>
+
+{% endblock %}

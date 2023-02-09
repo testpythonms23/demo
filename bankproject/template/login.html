@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<h4>Login</h4>
+<div class="container md-5">
+<form method="POST" class="bg-white shadow rounded md-4 px-8 pt-8 pb-8 mb-4">
+    {% csrf_token %}
+    <div class="mb-2 py-3 px-3 mr-10">
+        <label class="mb-2">UserName </label>   {{form.username}}
+    </div>
+        <div class="mb-2 py-3 px-3 mr-10">
+            <label>Password</label> {{form.password}}
+        </div>
+    <div class="mb-2 py-3 px-4">
+        <button type="submit" class="btn btn-secondary">Login</button><br>
+    </div>
+
+</form>
+</div>
+
+    Create login please click here
+    <button type="submit" class="sign-up"><a href="/register/">Sign Up</a></button>
+{% endblock %}
